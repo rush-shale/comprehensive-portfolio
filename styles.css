@@ -373,6 +373,36 @@ body {
     object-fit: cover;
 }
 
+.about-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #00d4ff;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    animation: name-glow-blink 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+                 0 0 20px rgba(0, 212, 255, 0.3),
+                 0 0 30px rgba(249, 115, 22, 0.2);
+    letter-spacing: 1px;
+}
+
+@keyframes name-glow-blink {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+                     0 0 20px rgba(0, 212, 255, 0.3),
+                     0 0 30px rgba(249, 115, 22, 0.2);
+        opacity: 1;
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.8),
+                     0 0 40px rgba(0, 212, 255, 0.6),
+                     0 0 60px rgba(249, 115, 22, 0.4),
+                     0 0 80px rgba(249, 115, 22, 0.3);
+        opacity: 0.9;
+    }
+}
+
 .social-links {
     display: flex;
     gap: 1.5rem;
