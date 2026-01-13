@@ -70,9 +70,11 @@
             <button id="closeFavoriteBtn" class="close-btn">&times;</button>
             <h2 id="favoriteTitle" style="color: #00d4ff; margin-bottom: 1.5rem; font-size: 2rem;">My Favorite</h2>
             <div id="favoriteBody" style="text-align: center;">
-                <div id="favoriteImage" style="width: 100%; height: 300px; background: rgba(0, 212, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin-bottom: 1.5rem;">
-                    📸
+                <div id="favoriteImage" style="width: 100%; height: 300px; background: rgba(0, 212, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin-bottom: 1.5rem; cursor: pointer; position: relative; overflow: hidden;">
+                    <span id="favoriteImagePlaceholder">📸</span>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
                 </div>
+                <p style="color: #a1a1aa; font-size: 0.9rem; margin-bottom: 1rem;">Click the image above to upload a picture</p>
                 <p id="favoriteText" style="color: #a1a1aa; font-size: 1.1rem; line-height: 1.6;">Click to add your picture and description</p>
             </div>
         </div>

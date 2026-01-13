@@ -11,23 +11,31 @@ const closeBtn = document.getElementById('closeBtn');
 const favoriteModal = document.getElementById('favoriteModal');
 const closeFavoriteBtn = document.getElementById('closeFavoriteBtn');
 const favoriteBtns = document.querySelectorAll('.favorite-btn');
+const favoriteImage = document.getElementById('favoriteImage');
+const imageUpload = document.getElementById('imageUpload');
+
+// Store favorite images in browser storage
+let favoriteImages = JSON.parse(localStorage.getItem('favoriteImages')) || {};
 
 // Favorites data
 const favoritesData = {
     game: {
         title: '🎮 My Favorite Game',
         emoji: '🎮',
-        text: 'Click the button to add your favorite game details and upload a picture!'
+        text: 'My favorite game',
+        imageUrl: './assets/images/dota2.jpg'
     },
     sport: {
         title: '⚽ My Favorite Sport',
         emoji: '⚽',
-        text: 'Click the button to add your favorite sport details and upload a picture!'
+        text: 'My favorite sport',
+        imageUrl: './assets/images/sport.jpg'
     },
     want: {
         title: '💡 What I Want',
         emoji: '💡',
-        text: 'Click the button to add your goals and dreams with a picture!'
+        text: 'My goals and dreams',
+        imageUrl: './assets/images/want.jpg'
     }
 };
 
