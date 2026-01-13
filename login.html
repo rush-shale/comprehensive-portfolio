@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hushh-rushh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #e4e4e7;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .glow-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        .login-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glowing-name {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #00d4ff;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: glow-pulse 2s ease-in-out infinite;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8),
+                         0 0 40px rgba(0, 212, 255, 0.6),
+                         0 0 60px rgba(249, 115, 22, 0.4),
+                         0 0 80px rgba(249, 115, 22, 0.2);
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(0, 212, 255, 0.8),
+                             0 0 40px rgba(0, 212, 255, 0.6),
+                             0 0 60px rgba(249, 115, 22, 0.4),
+                             0 0 80px rgba(249, 115, 22, 0.2);
+                transform: scale(1);
+                color: #00d4ff;
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(0, 212, 255, 1),
+                             0 0 60px rgba(0, 212, 255, 0.8),
+                             0 0 90px rgba(249, 115, 22, 0.6),
+                             0 0 120px rgba(249, 115, 22, 0.4);
+                transform: scale(1.05);
+                color: #00d4ff;
+            }
+        }
+
+        .glowing-name:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 40px rgba(0, 212, 255, 1),
+                         0 0 80px rgba(0, 212, 255, 0.8),
+                         0 0 120px rgba(249, 115, 22, 0.6),
+                         0 0 160px rgba(249, 115, 22, 0.4);
+            animation: none;
+            color: #00d4ff;
+        }
+
+        .glowing-name:active {
+            transform: scale(0.95);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .subtitle {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #a1a1aa;
+            opacity: 0.8;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glowing-name {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="glow-background"></div>
+        <div class="login-content">
+            <h1 class="glowing-name" id="loginName">Hushh-rushh</h1>
+            <p class="subtitle">Click to enter</p>
+        </div>
+    </div>
+    <script>
+        // Login page script - wait for DOM to load
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginName = document.getElementById('loginName');
+            
+            if (!loginName) {
+                console.error('Login name element not found');
+                return;
+            }
+
+            // Add click handler to redirect to dashboard
+            loginName.addEventListener('click', () => {
+                // Add a smooth fade-out effect before redirecting
+                loginName.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                loginName.style.transform = 'scale(1.2)';
+                loginName.style.opacity = '0';
+                
+                // Redirect after animation
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 500);
+            });
+
+            // Add hover effect
+            loginName.addEventListener('mouseenter', () => {
+                loginName.style.cursor = 'pointer';
+            });
+
+            // Add keyboard support (Enter key)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    loginName.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
