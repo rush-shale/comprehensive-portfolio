@@ -26,6 +26,11 @@ const computerLitModal = document.getElementById('computerLitModal');
 const closeComputerLitBtn = document.getElementById('closeComputerLitBtn');
 const computerLitTag = document.querySelector('.computer-lit-tag');
 
+// Cooking GIF Modal Toggle
+const cookingModal = document.getElementById('cookingModal');
+const closeCookingBtn = document.getElementById('closeCookingBtn');
+const cookingTag = document.querySelector('.cooking-tag');
+
 // Store favorite images in browser storage
 let favoriteImages = JSON.parse(localStorage.getItem('favoriteImages')) || {};
 
@@ -166,6 +171,9 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && computerLitModal && computerLitModal.style.display === 'flex') {
         computerLitModal.style.display = 'none';
     }
+    if (e.key === 'Escape' && cookingModal && cookingModal.style.display === 'flex') {
+        cookingModal.style.display = 'none';
+    }
 });
 
 // Welding tag click handler
@@ -210,6 +218,29 @@ if (computerLitModal) {
     computerLitModal.addEventListener('click', (e) => {
         if (e.target === computerLitModal) {
             computerLitModal.style.display = 'none';
+        }
+    });
+}
+
+// Cooking tag click handler
+if (cookingTag) {
+    cookingTag.addEventListener('click', () => {
+        cookingModal.style.display = 'flex';
+    });
+}
+
+// Close Cooking modal when close button is clicked
+if (closeCookingBtn) {
+    closeCookingBtn.addEventListener('click', () => {
+        cookingModal.style.display = 'none';
+    });
+}
+
+// Close Cooking modal when clicking outside the content
+if (cookingModal) {
+    cookingModal.addEventListener('click', (e) => {
+        if (e.target === cookingModal) {
+            cookingModal.style.display = 'none';
         }
     });
 }
