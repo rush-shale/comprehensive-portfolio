@@ -64,6 +64,20 @@
         <div class="hero-shape"></div>
     </section>
 
+    <!-- Favorite Modal -->
+    <div id="favoriteModal" class="info-modal" style="display: none;">
+        <div class="info-content">
+            <button id="closeFavoriteBtn" class="close-btn">&times;</button>
+            <h2 id="favoriteTitle" style="color: #00d4ff; margin-bottom: 1.5rem; font-size: 2rem;">My Favorite</h2>
+            <div id="favoriteBody" style="text-align: center;">
+                <div id="favoriteImage" style="width: 100%; height: 300px; background: rgba(0, 212, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin-bottom: 1.5rem;">
+                    📸
+                </div>
+                <p id="favoriteText" style="color: #a1a1aa; font-size: 1.1rem; line-height: 1.6;">Click to add your picture and description</p>
+            </div>
+        </div>
+    </div>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -81,17 +95,17 @@
                     </div>
                 </div>
                 <div class="about-stats">
-                    <div class="stat">
-                        <h3>💼</h3>
-                        <p>Web Developer</p>
+                    <div class="stat favorite-btn" data-favorite="game">
+                        <h3>🎮</h3>
+                        <p>Game</p>
                     </div>
-                    <div class="stat">
-                        <h3>🎯</h3>
-                        <p>Goal Oriented</p>
+                    <div class="stat favorite-btn" data-favorite="sport">
+                        <h3>⚽</h3>
+                        <p>Sport</p>
                     </div>
-                    <div class="stat">
-                        <h3>📚</h3>
-                        <p>Continuous Learner</p>
+                    <div class="stat favorite-btn" data-favorite="want">
+                        <h3>💡</h3>
+                        <p>What I Want</p>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,31 @@ const infoBtn = document.getElementById('infoBtn');
 const infoModal = document.getElementById('infoModal');
 const closeBtn = document.getElementById('closeBtn');
 
-// Show info modal when button is clicked
+// Favorite Modal Toggle
+const favoriteModal = document.getElementById('favoriteModal');
+const closeFavoriteBtn = document.getElementById('closeFavoriteBtn');
+const favoriteBtns = document.querySelectorAll('.favorite-btn');
+
+// Favorites data
+const favoritesData = {
+    game: {
+        title: '🎮 My Favorite Game',
+        emoji: '🎮',
+        text: 'Click the button to add your favorite game details and upload a picture!'
+    },
+    sport: {
+        title: '⚽ My Favorite Sport',
+        emoji: '⚽',
+        text: 'Click the button to add your favorite sport details and upload a picture!'
+    },
+    want: {
+        title: '💡 What I Want',
+        emoji: '💡',
+        text: 'Click the button to add your goals and dreams with a picture!'
+    }
+};
+
+// Open info modal when button is clicked
 infoBtn.addEventListener('click', () => {
     infoModal.style.display = 'flex';
 });
@@ -28,6 +52,39 @@ infoModal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && infoModal.style.display === 'flex') {
         infoModal.style.display = 'none';
+    }
+});
+
+// Favorite buttons click handlers
+favoriteBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const favoriteType = btn.getAttribute('data-favorite');
+        const data = favoritesData[favoriteType];
+        
+        document.getElementById('favoriteTitle').textContent = data.title;
+        document.getElementById('favoriteImage').textContent = data.emoji;
+        document.getElementById('favoriteText').textContent = data.text;
+        
+        favoriteModal.style.display = 'flex';
+    });
+});
+
+// Close favorite modal when close button is clicked
+closeFavoriteBtn.addEventListener('click', () => {
+    favoriteModal.style.display = 'none';
+});
+
+// Close favorite modal when clicking outside the content
+favoriteModal.addEventListener('click', (e) => {
+    if (e.target === favoriteModal) {
+        favoriteModal.style.display = 'none';
+    }
+});
+
+// Close favorite modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && favoriteModal.style.display === 'flex') {
+        favoriteModal.style.display = 'none';
     }
 });
 

@@ -287,6 +287,21 @@ body {
     transform: translateX(10px);
 }
 
+.favorite-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+    background: rgba(0, 212, 255, 0.15) !important;
+    transform: scale(1.05) translateX(5px);
+    border-left-color: var(--accent-color);
+}
+
+.favorite-btn:active {
+    transform: scale(0.98);
+}
+
 .stat h3 {
     font-size: 2.5rem;
     color: var(--primary-color);
