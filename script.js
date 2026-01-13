@@ -16,6 +16,11 @@ const imageUpload = document.getElementById('imageUpload');
 const emailBtn = document.querySelector('.email-btn');
 const emailText = document.getElementById('emailText');
 
+// Welding GIF Modal Toggle
+const weldingModal = document.getElementById('weldingModal');
+const closeWeldingBtn = document.getElementById('closeWeldingBtn');
+const weldingTag = document.querySelector('.welding-tag');
+
 // Store favorite images in browser storage
 let favoriteImages = JSON.parse(localStorage.getItem('favoriteImages')) || {};
 
@@ -150,7 +155,33 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && favoriteModal.style.display === 'flex') {
         favoriteModal.style.display = 'none';
     }
+    if (e.key === 'Escape' && weldingModal && weldingModal.style.display === 'flex') {
+        weldingModal.style.display = 'none';
+    }
 });
+
+// Welding tag click handler
+if (weldingTag) {
+    weldingTag.addEventListener('click', () => {
+        weldingModal.style.display = 'flex';
+    });
+}
+
+// Close welding modal when close button is clicked
+if (closeWeldingBtn) {
+    closeWeldingBtn.addEventListener('click', () => {
+        weldingModal.style.display = 'none';
+    });
+}
+
+// Close welding modal when clicking outside the content
+if (weldingModal) {
+    weldingModal.addEventListener('click', (e) => {
+        if (e.target === weldingModal) {
+            weldingModal.style.display = 'none';
+        }
+    });
+}
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');

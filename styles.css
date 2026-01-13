@@ -1028,6 +1028,11 @@ body {
     animation: slideUp 0.4s ease;
 }
 
+.welding-modal-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
 .close-btn {
     position: absolute;
     top: 1rem;
