@@ -296,8 +296,8 @@ contactForm.addEventListener('submit', (e) => {
 if (emailBtn && emailText) {
     emailBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        emailText.textContent = emailBtn.dataset.email || 'hinoyogjohnrushel@gmal.com';
-        emailText.classList.add('show');
+        emailText.textContent = emailBtn.dataset.email || 'hinoyogjohnrushel@gmail.com';
+        emailText.classList.toggle('show');
     });
 }
 
