@@ -701,11 +701,99 @@ body {
     margin-top: 2rem;
 }
 
-.resume-images img {
+.resume-img {
     max-width: 100%;
     width: 320px;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resume-images.full-size .resume-img {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.resume-images.full-size {
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume-img-hidden {
+    display: none !important;
+}
+
+.resume-img-visible {
+    display: block !important;
+}
+
+.show-all-btn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    animation: button-glow-blink 2s ease-in-out infinite;
+}
+
+.show-all-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4),
+                0 0 50px rgba(0, 212, 255, 0.4),
+                0 0 70px rgba(249, 115, 22, 0.3);
+    animation: none;
+}
+
+.show-all-btn:active {
+    transform: translateY(-1px) scale(0.95);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.show-all-btn.hidden {
+    display: none;
+}
+
+.back-btn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.2);
+    animation: button-glow-blink 2s ease-in-out infinite;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4),
+                0 0 50px rgba(249, 115, 22, 0.4),
+                0 0 70px rgba(0, 212, 255, 0.3);
+    animation: none;
+}
+
+.back-btn:active {
+    transform: translateY(-1px) scale(0.95);
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.5);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-btn.hidden {
+    display: none;
 }
 
 .skills-grid {

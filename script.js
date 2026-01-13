@@ -296,4 +296,69 @@ document.querySelectorAll('.cta-button, .social-links a, .favorite-btn, .stat, .
     });
 });
 
+// Resume show all functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const showAllResumeBtn = document.getElementById('showAllResumeBtn');
+    const backResumeBtn = document.getElementById('backResumeBtn');
+    const resumeImages = document.querySelectorAll('.resume-img');
+    const resumeImagesContainer = document.getElementById('resumeImagesContainer');
+
+    if (showAllResumeBtn && resumeImages.length > 0) {
+        showAllResumeBtn.addEventListener('click', () => {
+            // Add full-size class to container
+            resumeImagesContainer.classList.add('full-size');
+            
+            // Show all resume images
+            resumeImages.forEach((img, index) => {
+                if (img.classList.contains('resume-img-hidden')) {
+                    img.classList.remove('resume-img-hidden');
+                    img.classList.add('resume-img-visible');
+                    
+                    // Smooth fade-in animation for hidden images
+                    img.style.opacity = '0';
+                    img.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        img.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                }
+            });
+            
+            // Hide "Click to see all" button and show "Back" button
+            showAllResumeBtn.classList.add('hidden');
+            backResumeBtn.classList.remove('hidden');
+        });
+    }
+
+    if (backResumeBtn && resumeImages.length > 0) {
+        backResumeBtn.addEventListener('click', () => {
+            // Remove full-size class from container
+            resumeImagesContainer.classList.remove('full-size');
+            
+            // Hide all images except the first one
+            resumeImages.forEach((img, index) => {
+                if (index > 0) {
+                    img.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                    img.style.opacity = '0';
+                    img.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        img.classList.remove('resume-img-visible');
+                        img.classList.add('resume-img-hidden');
+                        img.style.opacity = '';
+                        img.style.transform = '';
+                    }, 400);
+                }
+            });
+            
+            // Show "Click to see all" button and hide "Back" button
+            setTimeout(() => {
+                showAllResumeBtn.classList.remove('hidden');
+                backResumeBtn.classList.add('hidden');
+            }, 400);
+        });
+    }
+});
+
 console.log('Portfolio website loaded successfully!');
