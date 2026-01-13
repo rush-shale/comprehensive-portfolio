@@ -175,36 +175,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form handling
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const data = {
-        name: contactForm.querySelector('input[type="text"]').value,
-        email: contactForm.querySelector('input[type="email"]').value,
-        message: contactForm.querySelector('textarea').value
-    };
-
-    // Simulate form submission
-    console.log('Form submitted:', data);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Show success message
-    const submitBtn = contactForm.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Message Sent! ✓';
-    submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
-    
-    setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-    }, 3000);
-});
+// Form handling (contact form removed)
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -273,25 +244,6 @@ window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
-// Prevent form submission if fields are empty
-contactForm.addEventListener('submit', (e) => {
-    const inputs = contactForm.querySelectorAll('input, textarea');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.style.borderColor = '#f97316';
-        } else {
-            input.style.borderColor = '';
-        }
-    });
-    
-    if (!isValid) {
-        e.preventDefault();
-    }
-});
-
 // Show email text instead of navigating away
 if (emailBtn && emailText) {
     emailBtn.addEventListener('click', (e) => {
@@ -301,14 +253,7 @@ if (emailBtn && emailText) {
     });
 }
 
-// Clear error styling on input
-contactForm.querySelectorAll('input, textarea').forEach(input => {
-    input.addEventListener('input', () => {
-        if (input.value.trim()) {
-            input.style.borderColor = '';
-        }
-    });
-});
+// Clear error styling on input (contact form removed)
 
 // Add loading animation to buttons
 document.querySelectorAll('button').forEach(button => {
