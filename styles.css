@@ -269,6 +269,17 @@ body {
     transform: translateY(-5px);
 }
 
+.email-text {
+    display: none;
+    margin-top: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.email-text.show {
+    display: block;
+}
+
 .about-stats {
     display: grid;
     gap: 2rem;

@@ -13,6 +13,8 @@ const closeFavoriteBtn = document.getElementById('closeFavoriteBtn');
 const favoriteBtns = document.querySelectorAll('.favorite-btn');
 const favoriteImage = document.getElementById('favoriteImage');
 const imageUpload = document.getElementById('imageUpload');
+const emailBtn = document.querySelector('.email-btn');
+const emailText = document.getElementById('emailText');
 
 // Store favorite images in browser storage
 let favoriteImages = JSON.parse(localStorage.getItem('favoriteImages')) || {};
@@ -289,6 +291,15 @@ contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
     }
 });
+
+// Show email text instead of navigating away
+if (emailBtn && emailText) {
+    emailBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        emailText.textContent = emailBtn.dataset.email || 'hinoyogjohnrushel@gmal.com';
+        emailText.classList.add('show');
+    });
+}
 
 // Clear error styling on input
 contactForm.querySelectorAll('input, textarea').forEach(input => {
