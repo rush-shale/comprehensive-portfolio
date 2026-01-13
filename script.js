@@ -30,7 +30,8 @@ const favoritesData = {
         title: '⚽ My Favorite Sport',
         emoji: '⚽',
         text: 'My favorite sport',
-        imageUrl: './assets/images/sport.jpg'
+        // Use the runner image from the image folder
+        imageUrl: 'image/runner.jpg'
     },
     want: {
         title: '💡 What I Want',
