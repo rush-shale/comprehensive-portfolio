@@ -175,6 +175,9 @@
                 loginName.style.transform = 'scale(1.2)';
                 loginName.style.opacity = '0';
                 
+                // Set session flag to allow access to dashboard
+                sessionStorage.setItem('loggedIn', 'true');
+                
                 // Redirect after animation
                 setTimeout(() => {
                     window.location.href = 'index.html';
