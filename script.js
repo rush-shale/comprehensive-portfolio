@@ -265,4 +265,35 @@ document.querySelectorAll('button').forEach(button => {
     });
 });
 
+// Add click ripple effects to buttons
+function createRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add('ripple');
+
+    const ripple = button.getElementsByClassName('ripple')[0];
+    if (ripple) {
+        ripple.remove();
+    }
+
+    button.appendChild(circle);
+}
+
+// Add ripple effect to all buttons and clickable elements
+document.querySelectorAll('.cta-button, .social-links a, .favorite-btn, .stat, .project-card, .skill-tag, .nav-link').forEach(element => {
+    element.addEventListener('click', function(e) {
+        // Add a pulse animation class
+        this.classList.add('pulse-effect');
+        setTimeout(() => {
+            this.classList.remove('pulse-effect');
+        }, 300);
+    });
+});
+
 console.log('Portfolio website loaded successfully!');
