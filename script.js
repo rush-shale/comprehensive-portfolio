@@ -31,6 +31,11 @@ const cookingModal = document.getElementById('cookingModal');
 const closeCookingBtn = document.getElementById('closeCookingBtn');
 const cookingTag = document.querySelector('.cooking-tag');
 
+// Small Engine Mechanic GIF Modal Toggle
+const mechanicModal = document.getElementById('mechanicModal');
+const closeMechanicBtn = document.getElementById('closeMechanicBtn');
+const mechanicTag = document.querySelector('.mechanic-tag');
+
 // Store favorite images in browser storage
 let favoriteImages = JSON.parse(localStorage.getItem('favoriteImages')) || {};
 
@@ -174,6 +179,9 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && cookingModal && cookingModal.style.display === 'flex') {
         cookingModal.style.display = 'none';
     }
+    if (e.key === 'Escape' && mechanicModal && mechanicModal.style.display === 'flex') {
+        mechanicModal.style.display = 'none';
+    }
 });
 
 // Welding tag click handler
@@ -241,6 +249,29 @@ if (cookingModal) {
     cookingModal.addEventListener('click', (e) => {
         if (e.target === cookingModal) {
             cookingModal.style.display = 'none';
+        }
+    });
+}
+
+// Small Engine Mechanic tag click handler
+if (mechanicTag) {
+    mechanicTag.addEventListener('click', () => {
+        mechanicModal.style.display = 'flex';
+    });
+}
+
+// Close Small Engine Mechanic modal when close button is clicked
+if (closeMechanicBtn) {
+    closeMechanicBtn.addEventListener('click', () => {
+        mechanicModal.style.display = 'none';
+    });
+}
+
+// Close Small Engine Mechanic modal when clicking outside the content
+if (mechanicModal) {
+    mechanicModal.addEventListener('click', (e) => {
+        if (e.target === mechanicModal) {
+            mechanicModal.style.display = 'none';
         }
     });
 }
