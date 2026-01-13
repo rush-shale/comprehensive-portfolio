@@ -2,6 +2,35 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
+// Info Modal Toggle
+const infoBtn = document.getElementById('infoBtn');
+const infoModal = document.getElementById('infoModal');
+const closeBtn = document.getElementById('closeBtn');
+
+// Show info modal when button is clicked
+infoBtn.addEventListener('click', () => {
+    infoModal.style.display = 'flex';
+});
+
+// Close info modal when close button is clicked
+closeBtn.addEventListener('click', () => {
+    infoModal.style.display = 'none';
+});
+
+// Close info modal when clicking outside the content
+infoModal.addEventListener('click', (e) => {
+    if (e.target === infoModal) {
+        infoModal.style.display = 'none';
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && infoModal.style.display === 'flex') {
+        infoModal.style.display = 'none';
+    }
+});
+
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
