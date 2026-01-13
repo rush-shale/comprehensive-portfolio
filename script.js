@@ -21,6 +21,11 @@ const weldingModal = document.getElementById('weldingModal');
 const closeWeldingBtn = document.getElementById('closeWeldingBtn');
 const weldingTag = document.querySelector('.welding-tag');
 
+// Computer Literature GIF Modal Toggle
+const computerLitModal = document.getElementById('computerLitModal');
+const closeComputerLitBtn = document.getElementById('closeComputerLitBtn');
+const computerLitTag = document.querySelector('.computer-lit-tag');
+
 // Store favorite images in browser storage
 let favoriteImages = JSON.parse(localStorage.getItem('favoriteImages')) || {};
 
@@ -158,6 +163,9 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && weldingModal && weldingModal.style.display === 'flex') {
         weldingModal.style.display = 'none';
     }
+    if (e.key === 'Escape' && computerLitModal && computerLitModal.style.display === 'flex') {
+        computerLitModal.style.display = 'none';
+    }
 });
 
 // Welding tag click handler
@@ -179,6 +187,29 @@ if (weldingModal) {
     weldingModal.addEventListener('click', (e) => {
         if (e.target === weldingModal) {
             weldingModal.style.display = 'none';
+        }
+    });
+}
+
+// Computer Literature tag click handler
+if (computerLitTag) {
+    computerLitTag.addEventListener('click', () => {
+        computerLitModal.style.display = 'flex';
+    });
+}
+
+// Close Computer Literature modal when close button is clicked
+if (closeComputerLitBtn) {
+    closeComputerLitBtn.addEventListener('click', () => {
+        computerLitModal.style.display = 'none';
+    });
+}
+
+// Close Computer Literature modal when clicking outside the content
+if (computerLitModal) {
+    computerLitModal.addEventListener('click', (e) => {
+        if (e.target === computerLitModal) {
+            computerLitModal.style.display = 'none';
         }
     });
 }
