@@ -62,8 +62,59 @@ favoriteBtns.forEach(btn => {
         const data = favoritesData[favoriteType];
         
         document.getElementById('favoriteTitle').textContent = data.title;
-        document.getElementById('favoriteImage').textContent = data.emoji;
         document.getElementById('favoriteText').textContent = data.text;
+        
+        const favoriteImage = document.getElementById('favoriteImage');
+        favoriteImage.innerHTML = ''; // Clear previous content
+        
+        // Check if it has an image URL
+        if (data.imageUrl) {
+            const img = document.createElement('img');
+            img.src = data.imageUrl;
+            img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; border-radius: 10px;';
+            img.onerror = function() {
+                // If image fails to load, show emoji instead
+                favoriteImage.textContent = data.emoji || '📸';
+            };
+            favoriteImage.appendChild(img);
+        } else {
+            favoriteImage.textContent = data.emoji || '📸';
+        }
+        
+        // Add link button if available
+        const favoriteBody = document.getElementById('favoriteBody');
+        const existingLink = favoriteBody.querySelector('.favorite-link');
+        if (existingLink) {
+            existingLink.remove();
+        }
+        
+        if (data.link) {
+            const linkBtn = document.createElement('a');
+            linkBtn.href = data.link;
+            linkBtn.target = '_blank';
+            linkBtn.className = 'favorite-link';
+            linkBtn.style.cssText = `
+                display: inline-block;
+                margin-top: 1.5rem;
+                padding: 0.8rem 1.5rem;
+                background: linear-gradient(135deg, #00d4ff 0%, #f97316 100%);
+                color: #0a0e27;
+                text-decoration: none;
+                border-radius: 25px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            `;
+            linkBtn.textContent = 'Learn More →';
+            linkBtn.onmouseover = function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 10px 30px rgba(0, 212, 255, 0.4)';
+            };
+            linkBtn.onmouseout = function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            };
+            favoriteBody.appendChild(linkBtn);
+        }
         
         favoriteModal.style.display = 'flex';
     });
