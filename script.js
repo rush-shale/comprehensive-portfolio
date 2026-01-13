@@ -23,7 +23,8 @@ const favoritesData = {
         title: '🎮 My Favorite Game',
         emoji: '🎮',
         text: 'My favorite game',
-        imageUrl: './assets/images/dota2.jpg'
+        // Use the dota2 image from the existing image folder
+        imageUrl: 'image/dota2.jpg'
     },
     sport: {
         title: '⚽ My Favorite Sport',
