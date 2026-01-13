@@ -37,7 +37,8 @@ const favoritesData = {
         title: '💡 What I Want',
         emoji: '💡',
         text: 'My goals and dreams',
-        imageUrl: './assets/images/want.jpg'
+        // Use the moto image from the image folder
+        imageUrl: 'image/moto.jpg'
     }
 };
 
